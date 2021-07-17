@@ -8,7 +8,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -20,9 +23,17 @@ public class SimRegisterService {
 
 	public void simRegistraion(List<Sim> listOfSim) throws IOException {
 
-		// System.out.println("call ........." + listOfSim.size());
+		Set<Sim> simsets = new HashSet<>();
 
-		for (Sim sim : listOfSim) {
+		for (Sim simNo : listOfSim) {
+
+			if (simsets.add(simNo) == false)
+				System.out.println("duplicate Msidsn is  -------> " + simNo.getMsisdn());
+		}
+
+
+
+		for (Sim sim : simsets) {
 
 			boolean isValidatedSim = BeanValidator.checkValidator(sim);
 
@@ -39,6 +50,17 @@ public class SimRegisterService {
 			}
 		}
 
+	}
+
+	private void removeDuplicateSim(List<Sim> listOfSim) {
+
+	}
+
+	private void duplicateCheck(List<Sim> listOfSim) {
+
+		listOfSim.parallelStream().collect(Collectors.groupingBy(Sim::getMsisdn, Collectors.counting())).entrySet()
+				.parallelStream().filter(m -> m.getValue() > 1)
+				.forEach(a -> System.out.println("duplicate Msidsn is  -------> " + a.getKey()));
 	}
 
 	private void sendWellcomeMsg(Sim validateSim) {
