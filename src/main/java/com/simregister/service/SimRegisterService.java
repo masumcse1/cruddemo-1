@@ -48,7 +48,7 @@ public class SimRegisterService {
 		String smsbodyforFeMale = "Dear Ms " + validateSim.getName() + "your phone no has been registerd successfully";
 
 		if (validateSim.getGender().equalsIgnoreCase("M")) {
-			
+
 			System.out.println(smsbodyforMale);
 
 		} else if (validateSim.getGender().equalsIgnoreCase("F")) {
@@ -61,7 +61,7 @@ public class SimRegisterService {
 		String fileName = validateSim.getMsisdn() + ".txt";
 
 		try {
-			File file = new File("C:\\developemnt\\ok\\" + fileName);
+			File file = new File("C:\\msidsnfile\\filestoreforRegister\\" + fileName);
 
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
