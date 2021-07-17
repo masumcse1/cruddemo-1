@@ -7,7 +7,7 @@ step 2 : create folder
  
  step 3 : mvn clean install 
  
- step 4 : java -jar 
+ step 4 : java -jar cruddemo-1-1.0.jar
  
  step 5 : http://localhost:8080/
  
