@@ -9,9 +9,11 @@ step 2 : create folder
  
  step 4 : java -jar 
  
- step 5 : csv file upload from (example : simregister success .csv)
+ step 5 : http://localhost:8080/
+ 
+ For upload csv file from (example : simregister success .csv)
         \cruddemo-1\csv file\
         
  step 6 : observe spring boot console for status
  
- step 7 : 
+ step 7 : need to create a blank mysql8 database (name="test") and also need to change user and password from applicaiton .properties.
