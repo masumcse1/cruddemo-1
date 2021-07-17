@@ -16,4 +16,4 @@ step 2 : create folder
         
  step 6 : observe spring boot console for status
  
- step 7 : need to create a blank mysql8 database (name="test") and also need to change user and password from applicaiton .properties.
+ step 7 : note :at first need to create a blank mysql8 database (name="test") and also need to change user and password from applicaiton .properties.
